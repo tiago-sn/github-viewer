@@ -19,3 +19,5 @@ const api = {
     return response.data;
   }
 };
+
+export default api;
