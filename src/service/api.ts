@@ -25,14 +25,20 @@ const api = {
       sort: 'stars'
     };
 
-    const response = await instance.get<SearchRepositoriesData>(
-      '/search/repositories',
-      {
-        params: { ...params, page }
-      }
-    );
+    try {
+      const response = await instance.get<SearchRepositoriesData>(
+        '/search/repositories',
+        {
+          params: { ...params, page }
+        }
+      );
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      console.error(error);
+
+      return;
+    }
   },
 
   /**
@@ -41,11 +47,17 @@ const api = {
    * @returns {PullRequest[]} pull request list from Github Api.
    */
   PullRequests: async (owner: string, name: string) => {
-    const response = await instance.get<PullRequest[]>(
-      `repos/${owner}/${name}/pulls`
-    );
+    try {
+      const response = await instance.get<PullRequest[]>(
+        `repos/${owner}/${name}/pulls`
+      );
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      console.error(error);
+
+      return;
+    }
   }
 };
 
