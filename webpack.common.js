@@ -1,10 +1,8 @@
-
 module.exports = {
-  entry: "./src/index.tsx",
-  mode: "development",
-  devtool: "inline-source-map",
+  entry: './src/index.tsx',
+  devtool: 'inline-source-map',
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   module: {
     rules: [
@@ -13,16 +11,15 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "ts-loader",
+            loader: 'ts-loader'
           }
         ]
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
-        loader: "source-map-loader"
+        loader: 'source-map-loader'
       }
     ]
-  },
-
-}
+  }
+};
