@@ -1,7 +1,6 @@
 import React from 'react';
+import RepositoryList from './components/RepositoryList';
 
-const App: React.FC = () => (
-  <h1>Most Popular Javscript Repos</h1>
-);
+const App: React.FC = () => <RepositoryList />;
 
 export default App;
